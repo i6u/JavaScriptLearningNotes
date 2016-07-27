@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>function</title>
+    <script type="text/javascript">
+        function max(a, b) {
+            return a>b?a:b;
+        }
+        console.log(max(3, 7));
+
+        var func = max;
+        console.log(func(23, 53));
+        
+        function max1() {
+        //    arguments获得传入参数
+            console.log(arguments);
+        }
+        //可以动态传入参数并且可以通过arguments获取
+        max1(1,2,3,4,5,'abc');
+
+        function max2() {
+            var maxValue = arguments[0];
+            for (var i = 1; i < arguments.length;i++) {
+                maxValue = max(maxValue, arguments[i]);
+            }
+            return maxValue;
+        }
+
+        console.log(max2(21, 3, 21, 4, 321, 2, 322));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
