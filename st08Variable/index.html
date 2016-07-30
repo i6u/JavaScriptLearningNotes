@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部变量,全局变量</title>
+    <script type="text/javascript">
+        var a = 1;  //全局变量
+        b = 2;      //全局变量
+        function demo() {
+            var x = 3;      //局部变量
+            y = 4;          //全局变量(函数demo执行后y就被定义成为全局变量)
+        }
+        demo();
+        alert(y);
+    </script>
+</head>
+<body>
+</body>
+</html>

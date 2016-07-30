@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调用函数</title>
+    <script type="text/javascript">
+        //js两种调用函数的方式,直接调用和是事件调用
+        function demo() {
+            var a =1;
+            var b =2;
+            alert(a * b);
+//            return 32;
+        }
+        demo();
+        //把函数demo作为一个变量赋值给c
+        var c = demo;
+        //把函数demo执行的返回值赋值给d
+        var d = demo();
+
+        function Demo() {
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+            alert(a * b);
+        }
+    </script>
+</head>
+<body>
+<input id="a" type="text"><br/>
+<input id="b" type="text"><br/>
+<button onclick="Demo(a,b)" >Run</button>
+</body>
+</html>
