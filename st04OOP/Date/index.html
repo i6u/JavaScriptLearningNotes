@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>date</title>
+</head>
+<body >
+
+
+
+<script>
+    var date = new Date();
+    document.write(date+'<hr>');
+    document.write(date.getFullYear()+'<hr>');
+    document.write(date.getTime()+'<hr>');
+    date.setFullYear(1991);
+    document.write(date.getFullYear()+'<hr>');
+
+    /*时钟*/
+    function startTime() {
+        var today = new Date();
+        var h = today.getFullYear();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('timeText').innerHTML = h+":"+m+":"+s;
+        setTimeout(function () {
+            startTime();
+        }, 1000);
+    }
+
+
+    function checkTime(num) {
+        if (num<10) {
+            num = '0'+num;
+        }
+        return num;
+    }
+
+    window.onload = startTime;
+</script>
+<div id="timeText">abc</div>
+
+</body>
+</html>

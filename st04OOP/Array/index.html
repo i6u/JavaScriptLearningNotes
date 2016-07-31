@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array</title>
+</head>
+<body>
+<script>
+    /*合并数组*/
+    var a = ['hello','world']
+    var b = ['iwe','ime']
+    var c = a.concat(b);
+    document.write(c+'<hr>');
+    /*排序*/
+    var d = ['a','c','e','b','d']
+    document.write(d.sort()+'<hr>');
+    /*排序升序*/
+    var e = [1,24,32,2,3,5,3]
+    document.write(e.sort()+'<hr>');
+    /*排序降序*/
+    /**
+     * arrayObject.sort(sortby)；参数sortby可选。规定排序顺序。必须是函数。
+     *
+     * 比较函数应该具有两个参数 a 和 b，其返回值如下：
+     * 若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。
+     * 若 a 等于 b，则返回 0。
+     * 若 a 大于 b，则返回一个大于 0 的值。
+     * */
+    document.write(e.sort(function (a, b) {
+                return b - a;/** a 与 b 相减会有三个结果 >0(降序),<0(升序),=0(升序) */
+            })+'<hr>');
+    /*追加*/
+    /*push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。push改变原数组,concat不改变原数组*/
+    var f = ['a','b'];
+    f.push('c');
+    document.write(f.toString()+'<hr>');
+    /*翻转*/
+    var g = ['a', 'c', 'e'];
+    document.write(g.reverse());
+</script>
+</body>
+</html>

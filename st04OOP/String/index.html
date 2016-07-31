@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+</head>
+<body>
+    <script>
+        var str = 'hello world ABC!';
+        document.write(str.length+'<hr/>');
+        document.write(str.indexOf('llo')+'<hr>');
+        document.write(str.match('world')+'<hr>');
+        document.write(str.replace('world','javascript')+'<hr>');
+
+        /*（1）toLocaleUpperCase toLocaleLowerCase 这两个函数在转换字符串中的字符时，同时将适应宿主环境的当前区域设置。在大多数情况下，其结果与利用 toUpperCase toLowerCase 这两个函数所得到的结果是一样的。但是如果语言规则与常规的 Unicode 大小写映射方式冲突，那么结果就会不同。
+         （2）toUpperCase toLowerCase 方法不会转换字符串中的非字母字符。*/
+        document.write(str.toUpperCase()+'<hr>');
+        document.write(str.toLowerCase()+'<hr>');
+        document.write(str.toLocaleUpperCase()+'<hr>');
+
+        var strs = str.split(' ');
+        document.write(strs.length+"<hr>");
+        for(var i = 0;i < strs.length;i++) {
+            document.write(strs[i]);
+        }
+        document.write('<hr>');
+        document.write(str.charAt(6));
+        document.write('<hr>');
+        document.write(str.charCodeAt(12));
+        document.write('<hr>');
+        document.write(str.concat('+2s'));
+        /*search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。*/
+        var str="Visit W3School!"
+        document.write('<hr>');
+        document.write(str.search(/w3school/)+"/");
+        document.write(str.search(/w3school/i));
+    </script>
+</body>
+</html>
