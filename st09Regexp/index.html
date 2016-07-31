@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+<script type="text/javascript">
+    var pat1 = new RegExp('hello world!');
+    var pat2 = /world/i;
+
+    var pat3 = /o w/i;
+
+    var str1 = 'hello World!'
+//    console.log(pat1.test(str1));
+//    console.log(pat2.test(str1));
+//    console.log(pat3.test(str1));
+
+    /**
+     * exec是RegExp的方法
+     * match是String的方法
+     * */
+
+    /*i忽略大小写*/
+    var pat4 = /s s/i;
+    var str = 'asdfasdfwfs Sadfwfesgs sdfw';
+    var ps = pat4.exec(str);
+    console.log(ps.length);
+    console.log(ps.index+'s');
+    console.log(ps);
+    console.log(ps.input);
+    console.log(ps[0]);
+
+    /*g全局检索*/
+    var str2 = 'gello xiaoming! I am admin,Xiaoming say hello';
+    var pat5 = /xiaoming/gi;
+    console.log(str2.match(pat5).length);
+    console.log(str2.match(pat5));
+
+    /*String.length返回的是数组长度+1*/
+    var str6 = [1,2,3];
+    console.log(str6[2])
+    console.log(str6.length)
+
+    /*在string.replace中使用正则表达式*/
+    var str7 = 'hello geek! oh i an geek';
+    var temp = str7.replace(/geek/g, 'jike');   //replace不会改变原始值
+    console.log(temp);
+    console.log(str7);
+
+    /*分割字符串*/
+    var str8 = 'hello hunger, oh i am hunger';
+    var s1 = str8.split(' ');
+    console.log(s1);
+    var s2 = str8.split(/\s+/); //这段/\s+/效果等同于' '的空格
+    console.log(s2);
+
+
+</script>
