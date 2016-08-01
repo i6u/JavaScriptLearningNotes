@@ -47,7 +47,34 @@
     var s1 = str8.split(' ');
     console.log(s1);
     var s2 = str8.split(/\s+/); //这段/\s+/效果等同于' '的空格
+
     console.log(s2);
+
+    console.log('-----------------------')
+    /**
+     * 正则符号规则
+     *
+     * i:忽略大小写
+     * g:全局检索
+     *
+     * [xyz] 检索x,y,z
+     * [x-y] 检索x-y之间的字母,包括x,y
+     * [^xxx] ^取反
+     * */
+    var str9 = 'person of the year! java,javaScript,c,c++,css';
+    console.log(str9.match(/[per]/g));
+    console.log(str9.match(/[a-e]/g));
+    console.log(str9.match(/[^a-e]/g));
+    console.log(str9.match(/[javacss]/g));
+    console.log('-----------------------')
+    /**
+     *the|java,the或者java
+     * .代表一个字符占位符,出了换行和行结束符
+     * */
+    var str10 = 'person of the year! java,javaScript,c,c++,css';
+    console.log(str10.match(/t.e|j...s|n.o|e.y/g));
+
+
 
 
 </script>
