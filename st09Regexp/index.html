@@ -73,6 +73,15 @@
      * */
     var str10 = 'person of the year! java,javaScript,c,c++,css';
     console.log(str10.match(/t.e|j...s|n.o|e.y/g));
+    /**
+     * /w 等价于[A-Za-z0-9_] /W等价于[^A-Za-z0-9_]
+     * */
+    var str11 = '-Give_100%!'
+    console.log(str11.match(/\w/g));
+    console.log(str11.match(/\W/g));
+    /**
+     *
+     * */
 
 
 
