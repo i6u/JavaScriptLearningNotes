@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operation CSS</title>
+    <style type="text/css">
+        div {
+            background-color: aquamarine;
+            width: 100px;
+            height: 100px;;
+        }
+    </style>
+    <script type="text/javascript">
+        function demo1() {
+            var d = document.getElementById('di');
+            d.style.backgroundColor = 'black';
+        }
+        function demo2() {
+            var d = document.getElementById('di');
+            d.style.color = 'palevioletred';
+        }
+    </script>
+</head>
+<body>
+    <div id="di">
+        hello
+    </div>
+    <button onclick="demo1()">background color</button>
+    <button onclick="demo2()">font color</button>
+</body>
+</html>
