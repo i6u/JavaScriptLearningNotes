@@ -2,29 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document Object Model</title>
+    <title>getElementsByTagNameNS</title>
 </head>
 <body>
-<p id="myid">Hello DOM</p>
-<p>Hello DOM</p>
-<p name="pn">Hello DOM1</p>
-<p name="pn">Hello DOM2</p>
-<button onclick="refresh()">getElementById</button>
-<button onclick="func1()">getElementsByTagName</button>
-<button onclick="func1()">getElementsByTagName</button>
-<br/>
 <script type="text/javascript">
-    function refresh() {
-        document.getElementById('myid').innerHTML = "Document Object Model";
-    }
-    function func1() {
-        var p = document.getElementsByTagName('p');
-        for (var i = 0; i < p.length; i++) {
-            alert(p[i].innerHTML);
-        }
-    }
-
-
     /**
      * getElementsByTagNameNS的一些测试
      * */
