@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM控制HTML元素</title>
+</head>
+<body>
+<p name="pn">hello</p>
+<p name="pn">world</p>
+<p name="pn">geek</p>
+<script type="text/javascript">
+    function getName() {
+        var count = document.getElementsByName('pn');
+        var countp = document.getElementsByTagName('p');
+        console.log(count.length);
+        console.log(countp.length);
+        for (var i = 0; i < count.length; i++) {
+            count[i].innerHTML += '_1';
+        }
+    }
+    getName();
+</script>
+
+<a id="aid" title="a标签title属性">this a</a>
+<script>
+    function getterAndSetter() {
+        var anode = document.getElementById('aid');
+        var attr = anode.getAttribute('id');
+        console.log(attr);
+        var attr1 = anode.getAttribute('title');
+        console.log(attr1);
+        var attr2 = anode.innerHTML;
+        console.log(attr2);
+
+        anode.setAttribute('title', '动态设置a的title属性');
+        console.log(anode.getAttribute('title'));
+        anode.style.color = 'red';
+        anode.innerHTML = "setAttribute('innerHTML','动态设置a的title属性');";
+    }
+    getterAndSetter();
+
+</script>
+
+<ul>
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+    <li>3</li>
+</ul>
+<script>
+    /**访问子节点*/
+    function getChildNode() {
+        var childNode = document.getElementsByTagName('ul');
+        console.log(childNode.length);
+        console.log(childNode[0].childNodes);
+        console.log(childNode[0].childNodes.length);
+        console.log(childNode[0].childNodes[0].nodeType);
+        console.log(childNode[0].childNodes[0]);
+        console.log(childNode[0].childNodes[1].nodeType);
+        console.log(childNode[0].childNodes[1]);
+    }
+    getChildNode();
+</script>
+
+
+<div id="did" name="mid" style="width: auto">
+    <p id="pid">123</p>
+</div>
+<script>
+    /**访问父节点*/
+    function getParentNode() {
+        var pNode = document.getElementById('pid');
+        console.log(pNode.parentNode)
+        console.log(pNode.parentNode.attributes)
+        console.log(pNode.parentNode.nodeName)
+    }
+    getParentNode();
+</script>
+
+<hr/>
+<button onclick="addNode()">addChildNode</button>
+<script>
+    /**添加元素节点*/
+    function addNode() {
+        var b = document.body;
+        var input = document.createElement('input')
+        input.type = 'button';
+        input.value = '添加的按钮'
+        input.onclick = createNode;
+        b.appendChild(input);
+    }
+
+    function createNode() {
+        var pNode = document.getElementById('pid');
+        pNode.style.color = 'red';
+        pNode.style.fontSize = '50px';
+        pNode.innerHTML = 'abc';
+    }
+
+    function createComment() {
+        var pNode = document.getElementById('pid');
+        var e = document.createComment(" 这是一个注释节点 ");
+        pNode.appendChild(e);
+    }
+    createComment();
+</script>
+
+<hr>
+<div id="div1">
+    <p id="dp1">insert before</p>
+</div>
+<button onclick="insertBefore1()">Insert before</button>
+<hr>
+<script>
+    function insertBefore1() {
+        var d = document.getElementById('div1');
+//        var p = document.getElementById('dp1');
+        var p = d.childNodes[1];
+        var np = document.createElement('p');
+        np.innerHTML = '这是一个动态创建的p节点,通过inserBefore插入' + p.innerHTML;
+        d.insertBefore(np, p);
+    }
+</script>
+<button onclick="removeNode1()">删除页面body下的p元素</button>
+<button id="life" onclick="dress()">打扮</button>
+<script>
+    function removeNode1() {
+        document.body.removeChild(document.body.childNodes[0])
+    }
+
+    function dress() {
+        var x = document.getElementById('life');
+        x.style.fontSize = '100px';
+        x.style.color = 'pink';
+        x.style.borderStyle = 'dashed';
+        x.innerHTML = '自杀';
+        x.onclick = idioctonia;
+    }
+    
+    function idioctonia() {
+//        var x = document.getElementById('life');
+//        document.body.removeChild(x);
+        document.body.innerHTML = '';
+    }
+</script>
+<button onclick="getSize1()">getSize offset</button>
+<button onclick="getSize2()">getSize scroll</button>
+<button onclick="getSize3()">getSize client</button>
+<script>
+    function getSize1() {
+        var height = document.documentElement.offsetHeight || document.body.offsetHeight; //可以解决浏览器兼容问题
+        var width = document.documentElement.offsetWidth;
+        var left = document.documentElement.offsetLeft;
+        var parent = document.documentElement.offsetParent;
+        var top = document.documentElement.offsetTop;
+        alert('height:'+height+',width:'+width+',left:'+left+',parent:'+parent+',top:'+top);
+    }
+
+    function getSize2() {
+        var height = document.documentElement.scrollHeight || document.body.scrollHeight; //可以解决浏览器兼容问题
+        var width = document.documentElement.scrollWidth;
+        var left = document.documentElement.scrollLeft;
+        var top = document.documentElement.scrollTop;
+        alert('height: '+height+', width: '+width+', left: '+left+', top: '+top);
+    }
+    function getSize3() {
+        var height = document.documentElement.clientHeight || document.body.clientHeight; //可以解决浏览器兼容问题
+        var width = document.documentElement.clientWidth;
+        var left = document.documentElement.clientLeft;
+        var top = document.documentElement.clientTop;
+        alert('height: '+height+', width: '+width+', left: '+left+', top: '+top);
+    }
+</script>
+
+<!--菜鸟教程网的例子(http://www.runoob.com/)-->
+<p id="demo">单击按钮创建一个标题</p>
+<button onclick="myFunction()">点我</button>
+<script>
+    function myFunction() {
+        var h = document.createElement("H1");
+        var t = document.createTextNode("Hello World");
+        h.appendChild(t);
+        document.body.appendChild(h);
+    }
+
+</script>
+
+<p id="demo1">单击按钮改HTML文档添加一个注释</p>
+<button onclick="myFunction1()">点我</button>
+<script>
+    function myFunction1(){
+        var c=document.createComment("My personal comments");
+        document.body.appendChild(c);
+        var x=document.getElementById("demo1");
+        x.innerHTML="这个文件现在包含一个注释,但如你所知,注释是看不见的。";
+    };
+</script>
+</body>
+</html>
