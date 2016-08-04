@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+
+</head>
+<body>
+<div>
+    <button id="btn" onclick="">button1</button>
+    <button id="btn1" onclick="">button2</button>
+</div>
+
+<script>
+    var b = document.getElementById('btn');
+    var d = document.body.childNodes;
+    function demo() {
+        b.style.backgroundColor = 'gray';
+        b.style.width = '318px';
+        b.style.height = '182px';
+        b.style.fontSize = '100px';
+        b.style.color = 'pink';
+        b.value = 'HTML事件处理!'
+    }
+
+    /** DOM 0级事件处理会后边的方法会覆盖前边的方法*/
+    function demo0(str) {
+        var ins = document.createElement('input');
+        ins.type = 'text';
+        ins.placeholder = str;
+        for (var i = 0; i<d.length;i++) {
+            d[i].nodeName == "DIV" ? document.body.insertBefore(ins, d[i]) : console.log('没找到父节点'+d[i].nodeName);
+        }
+    }
+
+//    b.onclick = demo0;
+
+    /** DOM 2级事件处理会后边的方法不覆盖前边的方法*/
+    var b1 = document.getElementById('btn1');
+    b.addEventListener('click',demo1);
+    b.addEventListener('click',demo2);
+    b1.onclick = function () {
+        var ins = document.createElement('p');
+        ins.innerHTML = '移除了button1按钮的demo2事件,此时点击button1按钮每次只能添加一个input';
+        for (var i = 0; i<d.length;i++) {
+            d[i].nodeName == "DIV" ? document.body.insertBefore(ins, d[i]) : console.log('没找到父节点'+d[i].nodeName);
+        }
+        b.removeEventListener('click',demo2);
+    }
+    function demo1() {
+        demo0('DOM 2级事件处理1');
+    }
+    function demo2() {
+        demo0('DOM 2级事件处理2');
+    }
+</script>
+
+<hr>
+<!--事件冒泡只针对同类型事件-->
+<div id="d2">
+    this is div<br/>
+    <button id="btn2">button3</button>
+</div>
+<script>
+    var b2 = document.getElementById('btn2').addEventListener('click', showType);
+    var d2 = document.getElementById('d2');
+    d2.addEventListener('click', demo4);
+    function showType(abc) { //event可以不作为参数,直接通过event点调用type等属性,也可以传制定名称,并加点调用
+        alert(abc.type);
+        alert(event.target);
+        abc.stopPropagation();//阻止事件冒泡
+    }
+    function demo4() {
+        d2.style.color = 'red';
+    }
+</script>
+<hr/>
+<a id="aid" href="http://www.jikexueyuan.com/">极客学院</a>
+<script>
+    var a1 = document.getElementById('aid');
+    a1.addEventListener('click',demo5);
+    function demo5(event) {
+        //text-decoration
+        a1.style.textDecoration = 'none';
+        a1.style.color = 'black';
+        a1.style.fontSize = '100px';
+        a1.style.fontFamily = '黑体';
+        event.preventDefault(); //阻止默认时间执行
+    }
+</script>
+</body>
+</html>
