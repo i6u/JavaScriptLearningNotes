@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器对象</title>
+</head>
+<body>
+<script>
+    window.document.write(window.innerHeight+'/'+window.innerWidth);
+    var num = window.innerWidth/2 - 100;
+    function btnOpen() {
+        window.open('open.html', 'window name', "toolbar = no,menubar = no,height = 100, width = 200, top = 0, left = " + num );
+    }
+</script>
+<button id="btn" onclick="btnOpen()">button</button>
+<hr/>
+<p id="pid"></p>
+<button id="btn1">button1</button>
+<script>
+    /**
+     * 计时器
+     * setInterval每隔一段时间执行一次方法
+     * */
+    var setIn = setInterval(function () {
+        getTime();
+    },1000);
+    function getTime() {
+        var d = new Date();
+        document.getElementById('pid').innerHTML = d.toLocaleTimeString();
+    }
+    document.getElementById('btn1').addEventListener('click', stopTime);
+    function stopTime() {
+        clearInterval(setIn);
+    }
+</script>
+<hr>
+<p id="pid1"></p>
+<button id="btn2">button2</button>
+<button onclick="stopSetTime()">stopSetTimeOut</button>
+<script>
+    /**
+     * 计时器
+     * setTimeout一段时间后执行方法(可以通过递归的方式实现和setinterval一样的效果)
+     * */
+    function setTime() {
+        var p1 = document.getElementById('pid1');
+        p1.innerHTML += '-';
+        num1 = setTimeout(function () {
+            setTime();
+        }, 1000);
+    }
+    document.getElementById('btn2').onclick = setTime;
+    function stopSetTime() {
+        clearTimeout(num1);
+    }
+</script>
+</body>
+</html>
