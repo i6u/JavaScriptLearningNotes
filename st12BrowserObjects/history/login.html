@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟登陆</title>
+    <script>
+        function login1() {
+            var inp = document.getElementsByName('name')[0];
+            if (inp.value=='hello') history.go(-1); else alert('name 输入错误');
+        }
+        alert(history.length);
+    </script>
+</head>
+<body>
+<input title="text" name="name"/>
+<button onclick="login1()">登陆</button>
+
+</body>
+</html>

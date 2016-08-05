@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+</head>
+<body>
+<button id="btn" onclick="getLoc()">button</button>
+<p id="pid"></p>
+<script>
+    function getLoc() {
+        var p = document.getElementById('pid');
+        p.innerHTML = window.location.href;
+        p.innerHTML += '<br>'+window.location.hostname;
+        p.innerHTML += '<br>'+window.location.pathname;
+        p.innerHTML += '<br>'+window.location.port;
+        p.innerHTML += '<br>'+window.location.protocol;
+        setTimeout(function () {
+            location.assign('http://www.jikexueyuan.com')
+        }, 3000);
+    }
+</script>
+</body>
+</html>
