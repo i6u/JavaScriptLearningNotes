@@ -38,5 +38,31 @@
     var g = ['a', 'c', 'e'];
     document.write(g.reverse());
 </script>
+
+<script>
+    var arr = new Array();
+    arr.push(11);
+    arr.push(22);
+    arr.push(33);
+    arr.push(44);
+    for (var i in arr) {
+        document.write(arr[i]+',');
+    }
+    document.write(arr.join('--'));
+    var as = [1, 2, 3, 4];
+    as.splice(2,2,31,32);
+    document.write('<hr>'+as);
+</script>
+<script>
+    //当使用with时大括号里的所有代码都是以document作为根对象
+    with(document){
+        write('qwerty')
+        with(body){     //可以嵌套
+            style.backgroundColor = 'pink';
+        }
+    }
+
+
+</script>
 </body>
 </html>

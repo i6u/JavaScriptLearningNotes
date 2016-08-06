@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <title>定义函数</title>
     <script type="text/javascript">
+        //强制类型转换,Number(num)
+        document.write(Number('12')+"&nbsp;&nbsp;");
+        //parseInt字符串开始的数字,如果字符串开始不是数字返回NaN
+        document.write(parseInt('1212px')+"&nbsp;&nbsp;");
+        document.write(parseInt('a1212px')+"&nbsp;&nbsp;");
+        //js中0为false,非零为true(特别注意NaN,undefined,null是false)
+        //两次取反可得到当前值的Boolean值
+        document.write(!!0+"&nbsp;&nbsp;");
+        document.write(!!NaN+"&nbsp;&nbsp;");
+        document.write(!!null+"&nbsp;&nbsp;");
+        var abc;
+        document.write(!!abc+"&nbsp;&nbsp;"+abc);
+
         //js大小写敏感
         function demo(a, b) {
             document.write("(" + a * b + ")"+"<hr>");
