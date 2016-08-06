@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+
+</head>
+<body>
+<div id="m1" style="display:table;margin: 0 auto;">
+    <div id="mydiv" style="display:table-cell;vertical-align:middle;">点击此处</div>
+</div>
+</body>
+<script type="text/javascript">
+    var d = document.getElementById('mydiv');
+    var d1 = document.getElementById('m1');
+
+    function fontSizeUp() {
+        d.style.fontSize = '100px'
+    }
+    function fontSizeDw() {
+        d.style.fontSize = '10px'
+    }
+    d.onmouseover = fontSizeUp;
+    d.onmouseout = fontSizeDw;
+</script>
+<p onclick="" style="font-size: 10px;width: auto;height: 600px;text-align: center">点击变大!</p>
+<script>
+    var flag = true;
+    var obj = document.getElementsByTagName('p')[0];
+    function demo() {
+        var count = parseInt(obj.style.fontSize);
+        console.log(count);
+        if (count >= 50) {
+            flag = false;
+            obj.innerHTML = '点击变小';
+        }
+        if (count <= 10) {
+            flag = true;
+            obj.innerHTML = '点击变大';
+        }
+
+        if (flag) {
+            count += 5;
+        } else {
+            count -= 5;
+        }
+        obj.style.fontSize = count + 'px';
+    }
+    obj.onmouseover = demo;
+    obj.onmouseout = demo;
+</script>
+</html>
