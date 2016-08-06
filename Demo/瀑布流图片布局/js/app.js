@@ -2,6 +2,7 @@
  * Created by zhouweitao on 16/8/6.
  */
 window.onload = function () {
+    topButton();
     imgLocation('container', 'box');
 
     var imgData = {
@@ -9,11 +10,11 @@ window.onload = function () {
             , {'src': '7.jpg'}, {'src': '8.jpg'}, {'src': '9.jpg'}, {'src': '10.jpg'}, {'src': '11.jpg'}, {'src': '12.jpg'}, {'src': '13.gif'}
             , {'src': '14.gif'}, {'src': '15.gif'}, {'src': '16.gif'}, {'src': '17.gif'}]
     }
-    
+
     window.onscroll = function () {
         if (checkFlag()) {
             var cParent = document.getElementById('container');
-            for (var i = 0;i<imgData.data.length;i++) {
+            for (var i = 0; i < imgData.data.length; i++) {
                 var cContent = document.createElement('div');
                 cContent.className = 'box';
                 cParent.appendChild(cContent);
@@ -21,7 +22,7 @@ window.onload = function () {
                 boxImg.className = 'box_img';
                 cContent.appendChild(boxImg);
                 var img = document.createElement('img');
-                img.src = 'images/'+imgData.data[i].src;
+                img.src = 'images/' + imgData.data[i].src;
                 boxImg.appendChild(img);
             }
             imgLocation('container', 'box');
@@ -29,6 +30,7 @@ window.onload = function () {
     }
 }
 
+/** 判读如果*/
 function checkFlag() {
     var cParent = document.getElementById('container');
     var cContent = getChildElement(cParent, 'box');
@@ -97,4 +99,37 @@ function getChildElement(parent, content) {
         }
     }
     return contentArr;
+}
+
+
+/*控制top按钮*/
+function topButton() {
+    var tb = document.getElementById('pTop');
+    var w = (document.documentElement.clientWidth || document.body.clientWidth) - 100;
+    var h = (document.documentElement.clientHeight || document.body.clientHeight) -100;
+    console.log(w+"/"+h);
+    tb.style.left = + w+'px';
+    tb.style.top = h+'px';
+    tb.style.paddingTop = (tb.offsetHeight - tb.fontSize)/2 + 'px';
+    tb.addEventListener('click', gotoTop);
+}
+function gotoTop() {
+    changeTop();
+    window.scrollBy(0,-100);
+    var timer=setTimeout('gotoTop()',1);
+    if(document.body.scrollTop==0){
+        changOver();clearTimeout(timer);
+    }
+
+}
+function changeTop() {
+    var tb = document.getElementById('top');
+    tb.style.backgroundColor = '#fff';
+    tb.style.color =  '#63c637';
+}
+function changOver() {
+    var tb = document.getElementById('top');
+    tb.style.backgroundColor = '#63c637';
+    tb.style.color =  '#fff';
+    
 }
