@@ -118,18 +118,22 @@ function gotoTop() {
     window.scrollBy(0,-100);
     var timer=setTimeout('gotoTop()',1);
     if(document.body.scrollTop==0){
-        changOver();clearTimeout(timer);
+        changOver();
+        clearTimeout(timer);
     }
+
 
 }
 function changeTop() {
     var tb = document.getElementById('top');
     tb.style.backgroundColor = '#fff';
     tb.style.color =  '#63c637';
+    tb.style.borderColor = '#63c637';
 }
 function changOver() {
     var tb = document.getElementById('top');
     tb.style.backgroundColor = '#63c637';
     tb.style.color =  '#fff';
+    tb.style.borderColor = '#fff';
     
 }
