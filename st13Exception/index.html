@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript异常(exception)</title>
+</head>
+<body>
+<script>
+    function demo() {
+        try {
+            alert(1/0);
+        } catch (e){
+            alert(e);
+        }
+    }
+//    demo();
+</script>
+<!--throw 自定义异常-->
+<input id="txt" type="text">
+<button id="btn">submit</button>
+<script>
+    var i = document.getElementById('txt');
+    var b = document.getElementById('btn');
+    b.onclick = function () {
+        try {
+            if (i.value =='') throw 'input is null'; else location.assign('https://www.baidu.com');
+        } catch (e){
+            console.log(e);
+        }
+    }
+</script>
+</body>
+</html>
