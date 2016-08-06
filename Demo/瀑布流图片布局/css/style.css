@@ -26,10 +26,11 @@ body{
 .box_img img{
     width: 150px;
     height:auto;    /*自适应高度*/
+    border-radius: 5px; /*设置边框圆角度*/
 }
 
 #pTop {
-    display:table;                      /*模拟表格设置div内容垂直居中*/
+    display:table;         /*模拟表格设置div内容垂直居中*/
     /*margin:0 auto;*/
     width: 50px;
     height: 45px;

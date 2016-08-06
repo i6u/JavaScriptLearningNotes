@@ -2,9 +2,8 @@
  * Created by zhouweitao on 16/8/6.
  */
 window.onload = function () {
-    topButton();
     imgLocation('container', 'box');
-
+    topButton();
     var imgData = {
         'data': [{'src': '0.jpg'}, {'src': '1.jpg'}, {'src': '2.jpg'}, {'src': '3.jpg'}, {'src': '4.jpg'}, {'src': '5.jpg'}, {'src': '6.jpg'}
             , {'src': '7.jpg'}, {'src': '8.jpg'}, {'src': '9.jpg'}, {'src': '10.jpg'}, {'src': '11.jpg'}, {'src': '12.jpg'}, {'src': '13.gif'}
@@ -27,7 +26,9 @@ window.onload = function () {
             }
             imgLocation('container', 'box');
         }
+
     }
+
 }
 
 /** 判读如果*/
@@ -113,10 +114,11 @@ function topButton() {
     tb.style.paddingTop = (tb.offsetHeight - tb.fontSize)/2 + 'px';
     tb.addEventListener('click', gotoTop);
 }
+/** 回到最顶部*/
 function gotoTop() {
     changeTop();
     window.scrollBy(0,-100);
-    var timer=setTimeout('gotoTop()',1);
+    var timer=setTimeout('gotoTop()',10);
     if(document.body.scrollTop==0){
         changOver();
         clearTimeout(timer);
@@ -129,11 +131,13 @@ function changeTop() {
     tb.style.backgroundColor = '#fff';
     tb.style.color =  '#63c637';
     tb.style.borderColor = '#63c637';
+    // tb.innerHTML = "<img src='images/top.jpg' style='width: 20px;height: 30px;'>";
 }
 function changOver() {
     var tb = document.getElementById('top');
     tb.style.backgroundColor = '#63c637';
     tb.style.color =  '#fff';
     tb.style.borderColor = '#fff';
+    tb.innerHTML = 'TOP';
     
 }
