@@ -2,6 +2,7 @@
  * Created by zhouweitao on 16/8/6.
  */
 window.onload = function () {
+    var tb = document.getElementById('pTop');
     imgLocation('container', 'box');
     topButton();
     var imgData = {
@@ -25,6 +26,9 @@ window.onload = function () {
                 boxImg.appendChild(img);
             }
             imgLocation('container', 'box');
+            // if (tb.style.display == ''||tb.style.display == 'none') {
+            //     tb.style.display = 'block';
+            // }
         }
 
     }
@@ -106,6 +110,7 @@ function getChildElement(parent, content) {
 /*控制top按钮*/
 function topButton() {
     var tb = document.getElementById('pTop');
+    tb.style.display = 'block';
     var w = (document.documentElement.clientWidth || document.body.clientWidth) - 100;
     var h = (document.documentElement.clientHeight || document.body.clientHeight) -100;
     console.log(w+"/"+h);
@@ -122,9 +127,8 @@ function gotoTop() {
     if(document.body.scrollTop==0){
         changOver();
         clearTimeout(timer);
+        // document.getElementById('pTop').style.display = 'none';
     }
-
-
 }
 function changeTop() {
     var tb = document.getElementById('top');
