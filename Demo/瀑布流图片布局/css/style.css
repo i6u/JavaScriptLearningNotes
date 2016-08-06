@@ -1,0 +1,30 @@
+*{
+    margin: 0px;    /*外边距*/
+    padding: 0px;   /*内边距*/
+}
+
+body{
+    background-color: #f4fdff;
+}
+
+#container {
+    position: relative; /*相对布局*/
+}
+
+.box{
+    padding: 5px;
+    float: left;    /*向左浮动*/
+}
+.box_img{
+    background-color: white;
+    padding: 5px;
+    border: 3px solid #d4dddf;  /*边框*/
+    box-shadow: 0 0 10px aliceblue;   /*阴影*/
+    border-radius: 5px; /*设置边框圆角度*/
+}
+
+.box_img img{
+    width: 150px;
+    height:auto;    /*自适应高度*/
+}
+
