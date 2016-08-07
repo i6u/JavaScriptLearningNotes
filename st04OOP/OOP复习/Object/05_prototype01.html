@@ -25,6 +25,45 @@
     var p2 = new Person();
     p2.name = 'jack';
     p2.say();
+    /**
+     * 监测某个对象是否某个函数的原型
+     * p2是否Person的原型
+     * */
+    console.log(Person.prototype.isPrototypeOf(p2));
+    console.log(Person.prototype);
+    /**
+     * 检测某个对象的构造函数construction的指向
+     * p2的construction的指向
+     * */
+    console.log(p2.constructor == Person);
+    /**
+     * 检测某个属性是否自己的属性
+     * p2的属性是否自己的属性
+     * */
+    console.log(p1.hasOwnProperty('name')); //p1空间中没有自己的属性
+    console.log(p2.hasOwnProperty('name')); //p2设置了自己的属性
+
+    delete p2.name; //删除p2自己的属性
+    p2.say();
+    console.log(p2.hasOwnProperty('name')); //p2设置了自己的属性
+    /**
+     *  检测某个对象在原型或者自己的空间中是否包含某个属性
+     * */
+    console.log('name' in p1);
+    console.log('phone' in p1);//false 在原型和自己的空间中都没有,返回false
+
+    /**
+     * 检测某个属性是否在原型中存在可以使用如下方法(注意:要检测某个属性是否在原型量中,必须排除这个属性在对象自己的空间中)
+     * */
+    function hasPrototypeProperty(obj,prop) {
+        return (!obj.hasOwnProperty(prop)) && (prop in obj); //不在自己的空间,并且在原型中
+    }
+
+    p2.name = '';
+    console.log(hasPrototypeProperty(p1,'name'));   //true p1自己空间中没有name,而对象person的原型量中存在name
+    console.log(hasPrototypeProperty(p2,'name'));   //false p2自己空间中存在name
+
+
 </script>
 </body>
 </html>
