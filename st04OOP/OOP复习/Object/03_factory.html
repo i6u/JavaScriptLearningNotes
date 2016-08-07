@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>factory</title>
+</head>
+<body>
+<script>
+    /**
+     * 使用工厂创建对象Factory
+     *
+     * 直接使用工厂创建
+     *
+     * 无法判断对象类型
+     * */
+    function createPerson(name, age) {
+        var o = new Object();
+        o.name = name;
+        o.age = age;
+        o.say = function () {
+            console.log(this.name+','+this.age);
+        }
+        return o;
+    }
+    var p1 = createPerson('jobs', 55);
+    var p2 = createPerson('jack', 51);
+    p1.say();
+    p2.say();
+</script>
+</body>
+</html>

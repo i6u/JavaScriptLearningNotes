@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<script>
+    /**
+     * 使用原型量prototype创建对象
+     *
+     * 对象属性为对象专有,不能通过window调用(区别于基础构造器创建对象的方法)
+     *
+     *
+     * */
+
+    function Person() {
+
+    }
+    Person.prototype.name = 'jobs';
+    Person.prototype.age = 55;
+    Person.prototype.say = function () {
+        console.log(this.name+','+this.age);
+    }
+
+    var p1 = new Person();
+    p1.say();
+    //
+//    window.say();
+</script>
+</body>
+</html>

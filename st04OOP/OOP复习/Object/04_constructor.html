@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>constructor</title>
+</head>
+<body>
+<script>
+    /**
+     * 基于构造函数的对象创建
+     *
+     * 通过new关键字创建
+     *
+     * 1,每一个对象中都存在一个方法的拷贝,影响性能//可以通过把方法定义为全局的方式来解决方法被多次拷贝,但是这就破坏了对象的封装性
+     *
+     * */
+
+    function say() {
+        console.log(this.name + ',' + this.age);
+    }
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+//        this.say = function () {
+//            console.log(this.name + ',' + this.age);
+//        }
+        this.say = say;
+    }
+
+
+    var p1 = new Person('jobs', 55);
+    var p2 = new Person('jack', 15);
+
+    p1.say();
+    p2.say();
+
+    console.log(typeof p1);
+    console.log(p1 instanceof Person);
+
+    console.log(p1.say == p2.say);
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json</title>
+</head>
+<body>
+<script>
+    /**
+     * JSON (javascript simple object notaction)
+     * json 就是js的对象,通过{}来完成对象的说明
+     * */
+    var person = {
+        name: 'jobs',
+        age: 23,
+        say: function () {
+            console.log(this);
+            console.log(this.name + ',' + this.age);
+        }
+    };
+    console.log(person.say());
+
+    var ps = [{name: 'jobs', age: 55}, {name: 'mark', age: 51}];
+    for (var i = 0; i < ps.length; i++) {
+        console.log(ps[i].name + ',' + ps[i].age);
+    }
+
+    console.log('-----------------------------------------------');
+
+    /**
+     * {}   对象
+     * []   数组
+     * :    键值对
+     * ,    分隔符
+     * */
+
+    var ps1 = [
+        {
+            name: 'jobs', age: 55, friends: ['mark', 'jack'], say: function () {
+            console.log(this.name + ',' + this.age + ',' + this.friends);
+        }
+        },
+        {
+            name: 'mark', age: 25, friends: ['jobs', 'jack'], say: function () {
+            console.log(this.name + ',' + this.age + ',' + this.friends);
+        }
+        },
+        {
+            name: 'jack', age: 35, friends: ['jobs', 'mark'], say: function () {
+            console.log(this.name + ',' + this.age + ',' + this.friends);
+        }
+        }
+    ]
+
+    for (var i = 0; i < ps1.length; i++) {
+        ps1[i].say();
+    }
+</script>
+</body>
+</html>
