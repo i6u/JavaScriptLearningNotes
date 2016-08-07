@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /**
+     * 函数是一个特殊的对象,
+     * 所以可以作为参数使用
+     * */
+    function callFun(fun, arg) {
+        return fun(arg);
+    }
+    function say(str) {
+        console.log('hello ' + str);
+    }
+    callFun(say, ' world!');
+
+    /**
+     * 函数可以作为返回值使用
+     * */
+    function fn1(arg) {
+        var rel = function (num) {
+            return arg + num;
+        }
+        return rel;
+    }
+
+    console.log(fn1(1));
+    var fn2 = fn1(10);
+    console.log(fn2(10));
+    console.log(fn1(20)(20));
+
+</script>
+</body>
+</html>

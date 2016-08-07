@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+<script>
+    /**
+     * this调用时会根据调用对象的改变而改变
+     * */
+
+    var color = 'blue';
+    var showColor = function () {
+        console.log(this);
+        console.log(this.color);
+    };
+    showColor();
+    
+    function Circle(color) {
+        console.log(this);
+        this.color  = color;
+        this.showColor = showColor;
+    }
+    var c = new Circle('white');
+    console.log(c.showColor());
+
+</script>
+</body>
+</html>

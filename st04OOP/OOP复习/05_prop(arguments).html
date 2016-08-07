@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * arguments为函数的一个属性,存放函数所有的传入参数和其他
+     * 注意arguments是一个对象,并不是一个数组,虽然看起来像
+     * */
+    function demo1(num) {
+        for (var i = 0; i < arguments.length; i++) {
+            console.log(arguments[i]);
+        }
+        console.log(arguments);
+        console.log(typeof arguments);
+        console.log(arguments instanceof Array);
+
+    }
+    demo1(1, 2, 32, 12,'sf');
+
+    /**
+     * arguments对象中callee方法
+     * 返回一个对函数的引用，该函数调用了当前函数。
+     * */
+    function factorial(num) {
+        if (num <= 1) return 1;
+//        else return num * factorial(num - 1);
+        else return num * arguments.callee(num - 1);
+    }
+    var fn = factorial;
+    factorial = null;
+    console.log(fn(5));
+
+    
+</script>
+</body>
+</html>

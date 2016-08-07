@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /**
+     * 函数定义方式
+     * function xxx(){}
+     * var xxx = function() {}
+     * var xxx = new function('',''...'','前为参数,函数体写在引号中');
+     * */
+
+    function fn1() {
+        console.log('fn1');
+    }
+    console.log(typeof fn1);
+    console.log(fn1 instanceof Object);  //函数是一个特殊的对象
+
+    /**
+     * 函数和对象区别
+     *
+     * 函数赋值是通过函数对象拷贝来完成
+     * 对象的赋值是通过引用指向的方式来完成
+     * */
+
+    var f2 = fn1;
+    f2();
+    fn1 = function () {     //放fn1指向一个新的函数,并不会影响f2的执行结果,但是fn1得执行结果已经改变!* 函数赋值是通过函数对象拷贝来完成
+        console.log('fnn1');
+    }
+    f2();
+    fn1();
+
+    var o1 = new Object();
+    var o2 = o1;
+    o2.name = 'object';
+    console.log(o1.name);       //* 对象的赋值是通过引用指向的方式来完成
+
+</script>
+</body>
+</html>

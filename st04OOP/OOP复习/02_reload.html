@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 函数的第三种定义方式,
+     * 这个例子也充分说明了函数就是一个对象
+     *
+     * 函数不存在重载
+     * */
+
+    var fn1 = new Function('a','alert(a)');
+    var fn1 = new Function('a','b','alert(a+b)');
+    console.log(fn1(11));    //* 函数不存在重载,后边的会覆盖前边的
+
+//    var fn2  = function (a) {
+//        return a;
+//    }
+//    var fn2  = function (a,b) {
+//        return a+b;
+//    }
+//    console.log(fn2(11));
+</script>
+</body>
+</html>
