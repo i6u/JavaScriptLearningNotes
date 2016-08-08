@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<script>
+    /**
+     * 重写prototype 02
+     *
+     * */
+    function Person() {
+
+    }
+
+    /** 为Person添加原型方法sayHi*/
+    Person.prototype.sayHi = function () {
+        console.log(this.name + ": hi");
+    }
+    /**
+     *  创建p1
+     *  此时p1的的_prop_指向的是Person的Prototype,p1存在sayHi方法,但是没有name属性
+     * */
+    var p1 = new Person();
+
+    p1.sayHi();     //结果为  undefined: hi
+
+    /**
+     *  重写Person原型
+     *  此时Person的Prototype为一个全新的原型(两个sayHi存在于两个原型中,是两个独立的方法,不存在重写覆盖这样的说法)
+     * */
+    Person.prototype = {
+        construction: Person,
+        name: 'jobs',
+        age: '55',
+        sayHi: function () {
+            console.log(this.name + "," + this.age);
+        }
+    }
+    /**
+     *  创建p2
+     *  p2的_prop_指向了Person重写后的Prototype
+     * */
+    var p2 = new Person();
+    p2.sayHi();         //结果为 jobs,55
+</script>
+</body>
+</html>
