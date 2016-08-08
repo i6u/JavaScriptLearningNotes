@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<script>
+    /**
+     * 使用构造函数加原型的方式创建对象,结果是方法和属性是分开定义的,对象看上去不是那么完美,为了解决这个问题出现了如下解决方法
+     * 出现了...
+     * 动态Prototype定义创建对象的方法
+     * */
+    function Person(name,age,friends) {
+        this.name = name;
+        this.age = age;
+        this.friends = friends;
+        if(!Person.prototype.say) {         //判断原型方法是否已经存在,不判断会导致原型方法在每次创建对象时都会定义一次 !!也不能在对象使用重写原型的方法创建原型方法,因为重写会改变Prototype中construction的指向
+            Person.prototype.say = function () {
+                console.log(this.name + ',' + this.age + "," + this.friends);
+            }
+        }
+    }
+
+    
+    var p1 = new Person('jobs',55,['Musk','Linus']);
+    var p2 = new Person('linus',45,['jobs','Musk']);
+    console.log(Person);
+    console.log(p1);
+
+    //此时所有的属性都是保存在对象自己的空间中
+    p1.name = 'p name';
+    p1.friends.push('jack');
+    p1.say();
+    p1.friends.push('mike');
+    p2.say();
+
+</script>
+</body>
+</html>

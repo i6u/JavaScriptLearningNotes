@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<script>
+    /**
+     * 重写prototype
+     *
+     * 1,无法通过构造函数设置属性
+     * 2,当属性中有引用类型变量时,可能存在变量值重复
+     * */
+    function Person() {
+
+    }
+
+    Person.prototype = {
+        constructor: Person,
+        name: 'jobs',
+        age: 55,
+        friends: ['mark', 'jack'],
+        say: function () {
+            console.log(this.name + ',' + this.age + "," + this.friends);
+        }
+    };
+
+    var p1 = new Person();
+    var p2 = new Person();
+
+    p1.name = 'p name';
+    p1.friends.push('mike');    //为p1的friends添加'mike'
+    p1.say();
+    //此时原型中就多了一个'mike',变量值重复
+    p2.say();
+
+</script>
+</body>
+</html>

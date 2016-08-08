@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<script>
+    /**
+     * 使用构造函数加原型的方式创建对象,属性用构造函数定义,方法用原型定义.
+     *
+     * 解决基于原型创建对象的2个问题
+     * */
+    function Person(name,age,friends) {
+        this.name = name;
+        this.age = age;
+        this.friends = friends;
+    }
+
+    Person.prototype = {
+        constructor: Person,
+        say: function () {
+            console.log(this.name + ',' + this.age + "," + this.friends);
+        }
+    };
+
+    var p1 = new Person('jobs',55,['Musk','Linus']);
+    var p2 = new Person('linus',45,['jobs','Musk']);
+
+    //此时所有的属性都是保存在对象自己的空间中
+    p1.name = 'p name';
+    p1.friends.push('jack');
+    p1.say();
+    p1.friends.push('mike');
+    p2.say();
+
+</script>
+</body>
+</html>
