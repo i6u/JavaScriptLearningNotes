@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<script>
+    /**
+     * 重写prototype
+     *
+     * */
+    function Person() {
+
+    }
+
+    /**
+     * 重写原型
+     *
+     * */
+    Person.prototype = {
+        construction: Person,
+        name: 'jobs',
+        age: '55',
+        say: function () {
+            console.log(this.name + "," + this.age);
+        }
+    }
+
+    var p1 = new Person();
+    p1.say();
+//    console.log(p1.construction);
+//    alert(p1.construction);
+//    console.log(Person.constructor);
+//    alert(Person.constructor);
+//    alert(p1.construction == Person);       //重写原型会使p1对象中的construction指向object而不是Person//需要在json重写原型时手动声明construction的指向
+    var bo = p1.construction == Person;
+    console.log(bo);
+//    console.warn((p1.constructor == Person));  /** alert结果为true,console.log结果为false!待解决*/
+
+
+</script>
+</body>
+</html>
