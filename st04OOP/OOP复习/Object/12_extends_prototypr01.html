@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承</title>
+</head>
+<body>
+<script>
+    /**
+     * JS
+     * 基于原型链的继承 01
+     *
+     * */
+
+    function Parent() {
+        this.pv = 'parent';
+
+    }
+
+    Parent.prototype.showParentValue = function () {
+        console.log('parent v :' + this.pv);
+    };
+
+
+
+    function Child() {
+        this.cv = 'child';
+    }
+
+//    console.log(new Parent());
+    /** 确定继承关系(使用原型链)*/
+    Child.prototype = new Parent();
+    /**
+     * 2.一定要在原型链确定之后,添加方法
+     * */
+    Child.prototype.showChildValue = function () {
+        console.log('Child v :' + this.cv);
+    };
+
+    /** 可以实现方法的覆盖*/
+    Parent.prototype.showParentValue = function () {
+        console.log('覆盖 parent show');
+    }
+
+
+
+    var c = new Child();
+    c.showParentValue();
+    c.showChildValue();
+
+    Parent.prototype.pp = 'ok';
+    console.log(c.pp);
+
+    Object.prototype.oc = 'object c';
+    console.log(c.oc);
+
+    /**
+     * 1.当继承关系确定,就不能再重写原型
+     * 2.一定要在原型链确定之后,添加方法
+     * */
+
+    Child.prototype = { };
+</script>
+</body>
+</html>

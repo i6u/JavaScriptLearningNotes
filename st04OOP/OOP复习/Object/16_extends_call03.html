@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 基于伪装的继承 02
+     * 使用伪装的方式(call)可以将子类构造函数中的参数传递给父类
+     *
+     *
+     * 存在问题
+     * 1,使用原型的方式设定方法,由于属性是设定这父类的自身空间中,而方法是设定则父类的原型中,使用伪装的方式(call)可以找到属性,却不能找到父类中的方法
+     * 2,如果使用this在父类中设定方法,则每次new一个对象,父类中的方法都会被创建一次,方法被重复创建
+     * */
+    function Parent(name) {
+        this.name = name;
+        this.color = ['red', 'blue'];
+
+//        this.say = function () {      //2,每次new一个对象都会被创建
+//            console.log(this.name);
+//        }
+    }
+
+//    Parent.prototype.say = function () {      //1,方法别设定在原型中,无法别调用
+//        console.log(this.name);
+//    };
+
+    function Child(name,age) {
+        this.age = age;
+        Parent.call(this,name);     /** 使用伪装的方式(call)可以将子类构造函数中的参数传递给父类*/
+    }
+
+    var c1 = new Child('jobs',55);
+    var c2 = new Child('Aia',155);
+    c1.say();
+    c2.say();
+    console.log(c1.name+','+c1.age);
+    console.log(c2.name+','+c2.age);
+</script>
+</body>
+</html>

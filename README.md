@@ -12,4 +12,7 @@
 =====
 [JS秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
 [MDN-JavaScript文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)
+=====
+
+方法,对象,继承,重点看`st04OOP/OOP复习`中的内容
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 基于伪装的继承 01
+     * */
+    function Parent() {
+//        console.log(this);
+        this.color = ['red', 'blue'];
+        this.name = 'jobs';
+    }
+    function Child() {
+//        console.log(this);
+        Parent.call(this);
+    }
+
+    var c1 = new Child();
+    var c2 = new Child();   /** 调用一次new Child(),就等于执行了一次对象(Parent)属性的设定,此时每个对象(c1,c2)中都有(Parent)的属性,互不影响*/
+    c1.color.push('black');
+    c1.name = 'abc';
+    console.log(c1.color+','+c1.name);
+    console.log(c2.color+','+c2.name);
+</script>
+</body>
+</html>

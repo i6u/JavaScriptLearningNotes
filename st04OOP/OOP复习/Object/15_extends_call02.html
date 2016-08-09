@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 基于伪装的继承 02
+     * 使用伪装的方式(call)可以将子类构造函数中的参数传递给父类
+     *
+     * */
+    function Parent(name) {
+        this.name = name;
+        this.color = ['red', 'blue'];
+    }
+
+
+    function Child(name,age) {
+        this.age = age;
+        Parent.call(this,name);     /** 使用伪装的方式(call)可以将子类构造函数中的参数传递给父类*/
+    }
+
+    var c1 = new Child('jobs',55);
+    var c2 = new Child('Aia',155);
+    console.log(c1.name+','+c1.age);
+    console.log(c2.name+','+c2.age);
+</script>
+</body>
+</html>

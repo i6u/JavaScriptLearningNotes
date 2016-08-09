@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承</title>
+</head>
+<body>
+<script>
+    /**
+     * JS
+     * 基于原型链的继承 02
+     *
+     * */
+
+    function Parent() {
+        this.pv = 'parent';
+        this.color = ['red', 'blue'];
+
+    }
+
+    Parent.prototype.showParentValue = function () {
+        console.log('parent v :' + this.pv);
+    };
+
+
+
+    function Child() {
+        this.cv = 'child';
+        this.cvs = ['a','b'];
+    }
+
+    /** 确定继承关系(使用原型链)*/
+    Child.prototype = new Parent();
+
+    Child.prototype.showChildValue = function () {
+        console.log('Child v :' + this.cv);
+    };
+
+
+    var c1 = new Child();
+    var c2 = new Child();
+    /**
+     * 当c1修改了对象中的引用类型,c2也被影响(只会影响引用类型)
+     * */
+    c1.color.push('black');
+    c1.cvs.push('c');
+    c1.cv = 'abc d';
+    console.log(c1.color+';'+c1.cvs+';'+c1.cv);
+    console.log(c2.color+';'+c1.cvs+';'+c2.cv);
+
+</script>
+</body>
+</html>
