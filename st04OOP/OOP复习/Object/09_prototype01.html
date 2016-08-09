@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<script>
+    /**
+     * 通过Prototype扩展String的方法
+     * */
+
+    String.prototype.trim = function () {
+//        return this.replace(/(^\s+)|(\s+$)/g,''); //取出前后空格
+        return this.replace(/\s/g,'');      //取出全部空格
+    };
+
+    var str = '   abc  d ';
+    console.log('('+str.trim()+')');
+</script>
+</body>
+</html>
