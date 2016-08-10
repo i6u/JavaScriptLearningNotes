@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+    /**
+     * Scope作用域
+     *
+     * JS中每一个函数的所有属性都存在一个Scope(作用域)用来确定函数属性的作用范围,当在某个新函数中调用了另一个函数后,
+     * 新函数会保留旧函数的作用域,同时创建自己的Scope,这就是js的作用域链
+     * */
+    var color = 'red';
+    var showColor = function () {
+        console.log(this.color);
+    }
+
+    function changeColor() {
+        var anotherColor = 'blue';
+        function swapCorol() {
+            var temp = anotherColor;
+            anotherColor = color;
+            color = temp;
+        }
+        swapCorol();
+    }
+    changeColor();
+    showColor();
+
+    //补充,与本节无关
+    //abc is not defined
+//    console.log(abc);
+    var abc1;
+    console.log(abc1);      //undefined
+</script>
+</body>
+</html>

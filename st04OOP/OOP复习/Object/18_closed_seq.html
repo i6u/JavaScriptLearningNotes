@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+    /**
+     * fn1这种写法,函数永远都会被最先初始化,是一个有名称的函数
+     * 执行不会报错
+     * */
+    fn1();
+    function fn1() {
+        console.log("fn1");
+    }
+    /**
+     * fn2是先在内存中创建一个函数,然后通过fn2的变量指向这块区域,这块区域的函数开始是没有名称的,这种函数就叫匿名函数
+     * 执行报错,fn2 is not a function
+     * */
+//    fn2();
+    var fn2 = function () {
+        console.log("fn2");
+    }
+</script>
+</body>
+</html>

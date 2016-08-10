@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+    /**
+     * 闭包,
+     * 通过返回函数扩大函数的作用域
+     *
+     * */
+    function compareObjectFunction(prop) {
+        return function (obj1, obj2) {      //匿名函数
+            if (obj1[prop] > obj2[prop])return 1;
+            else if (obj1[prop] < obj2[prop]) return -1;
+            else 0;
+        }
+    }
+    var o1 = {name: 'jobs', age: 55};
+    var o2 = {name: 'mark', age: 45};
+    /**
+     * compareObjectFunction执行完以后,因为compareObjectFunction函数里的匿名函数的Scope作用域链中存在compareObjectFunction的上下文,
+     * 所以compareObjectFunction执行完以后,执行compareObjectFunction返回的匿名函数,compareObjectFunction中的参数prop依然存在,这样的操作无疑是放大了
+     * 函数compareObjectFunction的作用域.
+     *
+     * 在JS中这种通过返回函数来扩大函数作用域的方法就叫做闭包!
+     * */
+    var compare = compareObjectFunction('age');
+    var rel = compare(o1, o2);
+    console.log(rel);
+</script>
+</body>
+</html>
