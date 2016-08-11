@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>私有变量</title>
+</head>
+<body>
+<script>
+    /**
+     *
+     * JS私有变量 02
+     *
+     * */
+
+    /**
+     * 静态私有变量的方式
+     * */
+    var Person;
+
+    (function () {
+        var name;
+        Person = function (value) {
+            name = value;
+        }
+        Person.prototype.setName = function (value) {
+            name = value;
+        }
+        Person.prototype.getName = function () {
+            return name;
+        }
+    }());
+
+    var p1 = new Person('jobs say');
+    console.log(p1.getName());
+    p1.setName('mark say');
+    console.log(p1.getName());
+
+</script>
+</body>
+</html>

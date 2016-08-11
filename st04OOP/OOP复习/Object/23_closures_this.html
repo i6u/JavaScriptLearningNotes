@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包this问题</title>
+</head>
+<body>
+<script>
+    /**
+     * 闭包this问题 01
+     *
+     * */
+
+    var name = 'The window';
+    var person = {
+        name: 'jobs',
+        age:55,
+        say:function () {
+            return function () {
+                return this.name;
+            }
+        }
+    };
+    /**
+     * 执行的结果为 'the window'
+     *
+     * 原因是,在没有执行person.say()方法时,闭包中匿名函数this指向的是调用say方法的person,
+     * 然而当person.say执行结束后,person.say所占用的内存空间被释放,此时this指向了window
+     *
+     *
+     * */
+    console.log(person.say()());
+</script>
+</body>
+</html>

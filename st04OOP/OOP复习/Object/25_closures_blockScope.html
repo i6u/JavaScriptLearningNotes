@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js中块作用域问题</title>
+</head>
+<body>
+    <script>
+        /**
+         * JS中没有块作用域 01
+         *
+         * */
+        for (var i = 0; i < 10; i++) {
+        }
+        /**
+         * 在循环/判断中定义的变量,循环/判断执行完之后,变量依然存在,
+         * 最忌讳的是在全局变量中这样使用,这无疑是等于定义了一个全局的变量i
+         *
+         * */
+        console.log(i);     //i依然可以被访问
+
+
+//
+//        function fn1() {
+//            for (var j = 0; j < 5; j++) {
+//                console.log('运行了函数fn1');
+//            }
+//        }
+//        fn1();
+//        console.log(j)
+    </script>
+</body>
+</html>

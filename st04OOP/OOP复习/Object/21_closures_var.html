@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+    /**
+     * 闭包问题 01
+     *
+     * 闭包中改变上级函数作用域中变量的值,内面(这里指上级函数的闭包中)使用这个变量的地方会受影响
+     *
+     * 下一节解决此问题
+     * */
+
+    function fn1() {
+        var fns = new Array();
+        for (var i = 0; i < 10; i++) {      //注意i存在于函数fn1的作用域中
+//            console.log("for outer i->" + i);
+            fns[i] = function () {
+//                console.log("for inner i ->" + i);
+                return i;
+            };
+//            fns[i]();
+        }
+        console.log("for over i ->" + i); //for结束后,函数fn1作用域中的i的值为10
+//        i = 27;       //就像这样,如果在这里改变i的值,那么fns中的所有函数return的值都将被改变
+        return fns;
+    }
+
+    var fs = fn1();
+    for (var i = 0; i < fs.length; i++) {
+        console.log(document.write(fs[i]()+'<br/>'));
+    }
+</script>
+</body>
+</html>

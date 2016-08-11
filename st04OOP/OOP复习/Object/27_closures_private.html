@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>私有变量</title>
+</head>
+<body>
+<script>
+    /**
+     *
+     * JS私有变量 01
+     *
+     * */
+
+    /**
+     * 模拟创建私有变量
+     * 不推荐使用,应为每个对象都会存储大量的函数
+     * */
+    function Person(name) {
+        this.setName = function (value) {
+            name = value;
+        }
+        this.getName = function () {
+            return name;
+        }
+    }
+    var p1 = new Person('jobs');
+    console.log(p1.getName());
+    p1.setName('mark');
+    console.log(p1.getName());
+</script>
+</body>
+</html>

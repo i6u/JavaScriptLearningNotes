@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包this问题</title>
+</head>
+<body>
+<script>
+    /**
+     * 闭包this问题 02
+     *
+     * */
+
+    var name = 'The window';
+    var person = {
+        name: 'jobs',
+        age:55,
+        say:function () {
+            var that = this;        /** 为函数say设置变量that,that指向了person*/
+            return function () {
+                return that.name;
+            }
+        }
+    };
+
+    console.log(person.say()());
+</script>
+</body>
+</html>
