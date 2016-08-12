@@ -8,7 +8,7 @@
 - 测试代码  **test(te)**
 
 ---
-** 学习资料**
+学习资料
 =====
 [JS秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)
 [MDN-JavaScript文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)      
@@ -40,7 +40,6 @@
 21. Scope作用域，JS中的作用域链
 22. 闭包中this的问题
 23. 块作用域在JS中的处理方式，JS中变量的私有化问题
-
 
 
 > 万物生于有，有生于无     
