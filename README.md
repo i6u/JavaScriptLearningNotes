@@ -6,7 +6,7 @@
 [MDN-JavaScript文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)      
 
 =====
-##函数、对象、闭包重点看（st04OOP/OOP复习）中的内容
+###函数、对象、原型、继承、闭包重点看（st04OOP/OOP复习）中的内容
 
 ###初识JS需掌握的内容
 
