@@ -27,11 +27,11 @@
      * */
     function factorial(num) {
         if (num <= 1) return 1;
-//        else return num * factorial(num - 1);
-        else return num * arguments.callee(num - 1);
+//        else return num * factorial(num - 1);     //耦合在一起
+        else return num * arguments.callee(num - 1);        //没有耦合在一起
     }
     var fn = factorial;
-    factorial = null;
+    factorial = null;   //使用arguments.callee的方法代替原方法的名称(factorial),在factorial被指为null或者被重写后,方法依然可以正常执行
     console.log(fn(5));
 
     
