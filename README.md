@@ -45,6 +45,6 @@
 
 > 万物生于有，有生于无     
 
-![JavaScript Object Layout](file:Users/zhouweitao/Desktop/jol.jpg)
+![JavaScript Object Layout](https://raw.githubusercontent.com/meekzhou/JavaScriptStudy-jikexueyuan/master/Document/JavaScript%20Object%20Layout.jpg)
 
 
