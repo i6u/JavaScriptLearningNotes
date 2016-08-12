@@ -16,9 +16,10 @@
 =====
 方法,对象,继承,重点看`st04OOP/OOP复习`中的内容
 
-初识JS许掌握的内容
-1. 语法，变量
-2. 操作符
+###初识JS许掌握的内容
+
+1. 语法，变量 
+2. 操作符 
 3. 循环、判断
 4. 变量定义，变量作用域
 5. 函数，函数三种定义方式，区别
@@ -42,7 +43,8 @@
 23. 块作用域在JS中的处理方式，JS中变量的私有化问题
 
 
-> 万物生于有，有生于无     
+> 万物生于有，有生于无
+---
 
 ![JavaScript Object Layout](https://raw.githubusercontent.com/meekzhou/JavaScriptStudy-jikexueyuan/master/Document/JavaScript%20Object%20Layout.jpg)
 
