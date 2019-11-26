@@ -137,6 +137,7 @@ function changeTop() {
     tb.style.borderColor = '#63c637';
     // tb.innerHTML = "<img src='images/top.jpg' style='width: 20px;height: 30px;'>";
 }
+/***/
 function changOver() {
     var tb = document.getElementById('top');
     tb.style.backgroundColor = '#63c637';
